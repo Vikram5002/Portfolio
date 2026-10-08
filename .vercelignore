@@ -1,0 +1,4 @@
+# Never upload local secrets or leftovers when deploying from this folder
+.env*
+.vercel
+index (1).html

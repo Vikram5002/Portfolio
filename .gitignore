@@ -5,3 +5,6 @@ node_modules/
 
 # Old copy of the page, kept locally only
 index (1).html
+
+.vercel
+.env*
