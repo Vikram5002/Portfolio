@@ -3,496 +3,403 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gumudavelli Vikram | UI/UX Developer</title>
-  <meta name="description" content="UI/UX developer who designs and ships web interfaces people use every day. Four shipped products, one live storefront, one AI app builder in progress.">
+  <title>Gumudavelli Vikram — Portfolio</title>
+  <meta name="description" content="Gumudavelli Vikram designs and builds interfaces people use every day. Four shipped products, one live storefront, one AI app builder in progress.">
   <meta name="author" content="Gumudavelli Vikram">
-  <meta name="theme-color" content="#06070b">
-  <meta property="og:title" content="Gumudavelli Vikram | UI/UX Developer">
+  <meta name="theme-color" content="#0b0b0a">
+  <meta property="og:title" content="Gumudavelli Vikram — Portfolio">
   <meta property="og:description" content="Interfaces that get used. Designed, built and reviewed end to end.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/vikram.webp">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/profile.png">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/vikram.webp" type="image/webp">
   <link rel="stylesheet" href="css/style.css">
   <script>
-    // Theme before first paint, and a safety net: if main.js never runs, nothing stays hidden.
+    // Set up the intro before first paint; never leave the page hidden if scripts fail.
     (function () {
-      var d = document.documentElement;
+      var d = document.documentElement, seen = false;
       d.classList.add('js');
-      try { if (localStorage.getItem('theme') === 'light') d.setAttribute('data-theme', 'light'); } catch (e) {}
-      setTimeout(function () { if (!d.classList.contains('ready')) d.classList.add('no-anim'); }, 3000);
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        d.classList.add('intro');
+        try { seen = sessionStorage.getItem('gv-seen') === '1'; } catch (e) {}
+        if (!seen) d.classList.add('loading');
+      }
+      setTimeout(function () { d.classList.remove('loading', 'intro'); }, 6000);
     })();
   </script>
+  <noscript><style>.sheet { display: block; position: static; } .sheet-panel { position: static; transform: none; } .case[hidden] { display: block; }</style></noscript>
 </head>
 <body>
-  <!-- Icon sprite -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
-    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
-    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
-    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
-    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
-    <symbol id="i-grid" viewBox="0 0 24 24"><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></symbol>
-    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
-    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
-    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
-    <symbol id="i-layout" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
-    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1" fill="currentColor"/><circle cx="17.5" cy="10.5" r="1" fill="currentColor"/><circle cx="8.5" cy="7.5" r="1" fill="currentColor"/><circle cx="6.5" cy="12.5" r="1" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol>
-    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
-    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
-    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
-    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
-    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
-    <symbol id="i-git" viewBox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
-  </svg>
-
   <a class="skip" href="#main">Skip to content</a>
 
-  <div class="progress" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="grid-overlay" aria-hidden="true"></div>
-  <div class="cursor is-hidden" aria-hidden="true">
-    <div class="cursor-ring"><span class="cursor-label"></span></div>
-    <div class="cursor-dot"></div>
+  <!-- Intro -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader-top"><span>Gumudavelli Vikram</span><span>Portfolio</span></div>
+    <div class="loader-bottom">
+      <span class="loader-count">000</span>
+      <span class="loader-place">Hyderabad, India</span>
+    </div>
+    <span class="loader-bar"></span>
   </div>
 
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="Home">GV<span>.</span></a>
-    <nav class="nav" aria-label="Sections">
-      <span class="nav-indicator" aria-hidden="true"></span>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#work">Work</a>
-      <a href="#education">Education</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Gumudavelli Vikram, back to top">Gumudavelli Vikram</a>
+    <p class="clock" aria-label="Local time in Hyderabad"><span>Hyderabad</span> <time class="clock-time">--:--</time> <span class="clock-zone">IST</span></p>
+    <nav class="nav" aria-label="Primary">
+      <a href="#work" class="roll"><span data-text="Work">Work</span></a>
+      <a href="#about" class="roll"><span data-text="About">About</span></a>
+      <a href="#record" class="roll"><span data-text="Record">Record</span></a>
+      <a href="#contact" class="roll"><span data-text="Contact">Contact</span></a>
+      <a href="assets/Vikram_Gumudavelli_CV.pdf" target="_blank" rel="noopener" class="roll"><span data-text="Résumé ↗">Résumé ↗</span></a>
     </nav>
-    <div class="topbar-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
-        <svg class="i i-sun"><use href="#i-sun"/></svg>
-        <svg class="i i-moon"><use href="#i-moon"/></svg>
-      </button>
-      <button class="icon-btn grid-toggle" type="button" aria-pressed="false" aria-label="Show the page grid" title="Show the page grid (G)">
-        <svg class="i"><use href="#i-grid"/></svg>
-      </button>
-      <a class="btn btn-solid btn-sm magnetic topbar-cta" href="#contact">Let's talk</a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
-    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-open-label">Menu</span><span class="menu-close-label">Close</span></button>
   </header>
 
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" inert>
-    <nav aria-label="Sections">
-      <a href="#about"><span>01</span>About</a>
-      <a href="#skills"><span>02</span>Skills</a>
-      <a href="#work"><span>03</span>Work</a>
-      <a href="#education"><span>04</span>Education</a>
-      <a href="#achievements"><span>05</span>Achievements</a>
-      <a href="#certifications"><span>06</span>Certifications</a>
-      <a href="#contact"><span>07</span>Contact</a>
+  <div class="menu" id="menu" aria-hidden="true" inert>
+    <nav aria-label="Primary">
+      <a href="#work"><small>01</small>Work</a>
+      <a href="#about"><small>02</small>About</a>
+      <a href="#skills"><small>03</small>Capabilities</a>
+      <a href="#record"><small>04</small>Record</a>
+      <a href="#contact"><small>05</small>Contact</a>
     </nav>
-    <div class="mobile-nav-foot">
+    <div class="menu-foot">
       <a href="mailto:bunny.vikram18@gmail.com">bunny.vikram18@gmail.com</a>
-      <div>
-        <a href="https://github.com/Vikram5002" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+      <p><a href="https://github.com/Vikram5002" target="_blank" rel="noopener">GitHub</a> <a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener">LinkedIn</a> <a href="assets/Vikram_Gumudavelli_CV.pdf" target="_blank" rel="noopener">Résumé</a></p>
     </div>
   </div>
 
   <main id="main">
 
     <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="aurora a1"></div>
-        <div class="aurora a2"></div>
-        <div class="aurora a3"></div>
-        <div class="hero-grid"></div>
-        <div class="spotlight"></div>
-      </div>
-
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="status-pill enter" style="--d:.15s"><span class="pulse"></span>Open to UI/UX roles</p>
-          <p class="hero-kicker enter" style="--d:.25s">Gumudavelli Vikram <span>/ UI/UX Developer</span></p>
-          <h1 class="hero-title">
-            <span class="line"><span class="w"><span class="wi" style="--i:0">Interfaces</span></span> <span class="w"><span class="wi" style="--i:1">that</span></span></span>
-            <span class="line accent"><span class="w"><span class="wi" style="--i:2">get</span></span> <span class="w"><span class="wi" style="--i:3">used.</span></span></span>
-          </h1>
-          <p class="hero-lead enter" style="--d:.7s">UI/UX developer at NMIMS Hyderabad. I design the flow, build the screen, and check the result against real people. One of my products takes orders for a shop every day.</p>
-          <div class="hero-actions enter" style="--d:.82s">
-            <a class="btn btn-solid btn-lg magnetic" href="#work">See the work <svg class="i i-s"><use href="#i-arrow-down"/></svg></a>
-            <a class="btn btn-ghost btn-lg magnetic" href="assets/Vikram_Gumudavelli_CV.pdf" target="_blank" rel="noopener"><svg class="i"><use href="#i-file"/></svg> Resume</a>
-          </div>
-          <ul class="hero-links enter" style="--d:.94s">
-            <li><a href="https://github.com/Vikram5002" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>GitHub</a></li>
-            <li><a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
-            <li><a href="mailto:bunny.vikram18@gmail.com"><svg class="i"><use href="#i-mail"/></svg>bunny.vikram18@gmail.com</a></li>
-          </ul>
-        </div>
-
-        <div class="hero-figure">
-          <div class="portrait-wrap">
-            <div class="orbit orbit-outer" aria-hidden="true"></div>
-            <div class="orbit orbit-inner" aria-hidden="true"></div>
-            <div class="ring-glow" aria-hidden="true"></div>
-            <div class="ring" aria-hidden="true"></div>
-            <div class="portrait">
-              <img src="assets/profile.png" alt="Portrait of Gumudavelli Vikram" width="420" height="420">
-            </div>
-            <div class="mp-cursor" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 2.5 20 11l-7 1.8L9.6 20z"/></svg>
-              <span>Vikram</span>
-            </div>
-          </div>
-          <ul class="hero-facts">
-            <li class="fact f1" style="--d:1.05s"><strong data-count="4">4</strong><span>products shipped</span></li>
-            <li class="fact f2" style="--d:1.2s"><strong data-count="1">1</strong><span>live store, daily orders</span></li>
-            <li class="fact f3" style="--d:1.35s"><strong data-count="11">11</strong><span>user roles in one portal</span></li>
-          </ul>
+    <section class="hero" id="top">
+      <div class="hero-portrait">
+        <div class="hero-portrait-inner">
+          <img src="assets/vikram.webp" alt="Portrait of Gumudavelli Vikram" width="1110" height="1417" fetchpriority="high">
         </div>
       </div>
 
-      <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span class="mouse"></span><span>Scroll</span></a>
+      <div class="hero-ui">
+      <div class="hero-copy" data-intro>
+        <p class="hero-tagline">Interfaces that<br><em>get used.</em></p>
+        <p class="hero-lead">I design the flow, build the screen, and check the result against real people.</p>
+      </div>
+
+      <dl class="hero-meta" data-intro>
+        <div><dt>Based in</dt><dd>Hyderabad, India</dd></div>
+        <div><dt>Studying</dt><dd>B.Tech CSE (Data Science)<br>NMIMS, 2023–2027</dd></div>
+      </dl>
+
+      <p class="hero-scroll" data-intro aria-hidden="true"><span class="hero-scroll-line"></span>Scroll</p>
+      </div>
+
+      <h1 class="masthead" aria-label="Gumudavelli Vikram">
+        <span class="mast-row" aria-hidden="true">
+          <span class="mast-line">GUMUDAVELLI</span>
+          <span class="mast-line">VIKRAM</span>
+        </span>
+      </h1>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-row r1">
-        <div class="marquee-track">
-          <span>Open to UI/UX roles</span><span>Figma</span><span>Photoshop</span><span>Canva</span><span>HTML / CSS / JS</span><span>React</span><span>Responsive design</span><span>Design systems</span>
-          <span>Open to UI/UX roles</span><span>Figma</span><span>Photoshop</span><span>Canva</span><span>HTML / CSS / JS</span><span>React</span><span>Responsive design</span><span>Design systems</span>
-        </div>
+    <!-- Figures -->
+    <section class="figures" aria-label="In numbers">
+      <div class="figure-item" data-reveal>
+        <p class="figure-num"><span data-count="4">4</span></p>
+        <p class="figure-label">products shipped</p>
       </div>
-      <div class="marquee-row r2">
-        <div class="marquee-track">
-          <span>User-centered design</span><span>User flows</span><span>Wireframing</span><span>Prototyping</span><span>Visual hierarchy</span><span>Typography &amp; spacing</span><span>Usability review</span>
-          <span>User-centered design</span><span>User flows</span><span>Wireframing</span><span>Prototyping</span><span>Visual hierarchy</span><span>Typography &amp; spacing</span><span>Usability review</span>
-        </div>
+      <div class="figure-item" data-reveal>
+        <p class="figure-num"><span data-count="1">1</span></p>
+        <p class="figure-label">live store, taking orders daily</p>
       </div>
-    </div>
+      <div class="figure-item" data-reveal>
+        <p class="figure-num"><span data-count="11">11</span></p>
+        <p class="figure-label">user roles in one portal</p>
+      </div>
+      <div class="figure-item" data-reveal>
+        <p class="figure-num"><span data-count="87">87</span><sup>%</sup></p>
+        <p class="figure-label">first-attempt success on backend components, up from 41%</p>
+      </div>
+    </section>
 
     <!-- About -->
     <section class="section about" id="about">
-      <div class="section-head">
-        <span class="section-index">01</span>
-        <h2 class="section-title split">About</h2>
+      <header class="run" data-run><span>About</span><span>Design and code</span><span>Hyderabad</span></header>
+      <p class="statement">The part of every project I care most about is the moment a stranger opens it for the first time and knows what to do.</p>
+      <div class="about-cols">
+        <p data-reveal>I'm a fourth-year B.Tech student in Computer Science (Data Science) at STME, NMIMS Hyderabad.</p>
+        <p data-reveal>Because I design and code, I can take a screen from wireframe to working interface and review the build myself.</p>
       </div>
-      <div class="about-grid">
-        <p class="about-lead">I'm a fourth-year B.Tech student in Computer Science (Data Science) at STME, NMIMS Hyderabad. The part of every project I care most about is the moment a stranger opens it for the first time and knows what to do.</p>
-        <div class="about-body" data-reveal>
-          <p>I've shipped four web products: an e-commerce storefront handed to a local shop owner and in daily use, an 11-role issue tracker and a 9-level event approval system for my university, and a capstone AI app builder with a drag-and-drop page editor. Because I design and code, I can take a screen from wireframe to working interface and review the build myself.</p>
-          <p>I'm looking for a UI/UX role where I can own screens end to end, run small usability tests, and help build a design system.</p>
-        </div>
-        <dl class="about-facts" data-stagger>
-          <div class="fact-card spot" data-reveal><span class="fact-icon"><svg class="i"><use href="#i-pin"/></svg></span><div><dt>Based in</dt><dd>Hyderabad, open to Bangalore and Mumbai</dd></div></div>
-          <div class="fact-card spot" data-reveal><span class="fact-icon"><svg class="i"><use href="#i-cap"/></svg></span><div><dt>Studying</dt><dd>B.Tech CSE (Data Science), 2023–2027</dd></div></div>
-          <div class="fact-card spot" data-reveal><span class="fact-icon"><svg class="i"><use href="#i-pen"/></svg></span><div><dt>Designs in</dt><dd>Figma, Photoshop, Canva</dd></div></div>
-          <div class="fact-card spot" data-reveal><span class="fact-icon"><svg class="i"><use href="#i-code"/></svg></span><div><dt>Builds in</dt><dd>HTML, CSS, JavaScript, React</dd></div></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="section skills" id="skills">
-      <div class="section-head">
-        <span class="section-index">02</span>
-        <h2 class="section-title split">Skills</h2>
-        <p class="section-sub" data-reveal>Design first, then the code to make it real.</p>
-      </div>
-      <div class="bento" data-stagger>
-        <article class="skill skill-primary spot" data-reveal>
-          <div class="skill-head">
-            <span class="skill-icon"><svg class="i"><use href="#i-layout"/></svg></span>
-            <span class="skill-kicker">Core</span>
-          </div>
-          <h3>UI/UX</h3>
-          <ul class="chips">
-            <li>User-centered design</li><li>User flows</li><li>Wireframing</li><li>Prototyping</li><li>Responsive web &amp; mobile</li><li>Visual hierarchy</li><li>Typography &amp; spacing</li><li>Design systems</li><li>Usability review</li>
-          </ul>
-          <div class="artboard" aria-hidden="true">
-            <span class="ab-bar"></span>
-            <span class="ab-row"><span></span><span></span></span>
-            <span class="ab-btn"></span>
-            <svg class="ab-cursor" viewBox="0 0 24 24" width="18" height="18"><path d="M4 2.5 20 11l-7 1.8L9.6 20z"/></svg>
-          </div>
-        </article>
-        <article class="skill spot" data-reveal>
-          <div class="skill-head"><span class="skill-icon"><svg class="i"><use href="#i-palette"/></svg></span><h3>Design tools</h3></div>
-          <ul class="chips"><li>Figma</li><li>Adobe Photoshop</li><li>Canva</li></ul>
-        </article>
-        <article class="skill spot" data-reveal>
-          <div class="skill-head"><span class="skill-icon"><svg class="i"><use href="#i-code"/></svg></span><h3>Front-end</h3></div>
-          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li><li>Streamlit</li></ul>
-        </article>
-        <article class="skill spot" data-reveal>
-          <div class="skill-head"><span class="skill-icon"><svg class="i"><use href="#i-database"/></svg></span><h3>Backend &amp; data</h3></div>
-          <ul class="chips"><li>PHP</li><li>MySQL</li><li>Firebase</li><li>AWS (EC2, RDS)</li><li>Python</li></ul>
-        </article>
-        <article class="skill spot" data-reveal>
-          <div class="skill-head"><span class="skill-icon"><svg class="i"><use href="#i-sparkles"/></svg></span><h3>ML &amp; AI</h3></div>
-          <ul class="chips"><li>Scikit-learn</li><li>TensorFlow</li><li>Pandas</li><li>NumPy</li><li>LLM fine-tuning (LoRA)</li><li>Power BI</li></ul>
-        </article>
-        <article class="skill skill-wide spot" data-reveal>
-          <div class="skill-head"><span class="skill-icon"><svg class="i"><use href="#i-git"/></svg></span><h3>Collaboration</h3></div>
-          <ul class="chips"><li>Requirements gathering</li><li>Developer hand-off</li><li>Git &amp; GitHub</li></ul>
-        </article>
-      </div>
+      <dl class="facts" data-stagger>
+        <div data-reveal><dt>Based in</dt><dd>Hyderabad, open to Bangalore and Mumbai</dd></div>
+        <div data-reveal><dt>Studying</dt><dd>B.Tech CSE (Data Science), 2023–2027</dd></div>
+        <div data-reveal><dt>Designs in</dt><dd>Figma, Photoshop, Canva</dd></div>
+        <div data-reveal><dt>Builds in</dt><dd>HTML, CSS, JavaScript, React</dd></div>
+      </dl>
     </section>
 
     <!-- Work -->
     <section class="section work" id="work">
-      <div class="section-head">
-        <span class="section-index">03</span>
-        <h2 class="section-title split">Work<sup>04</sup></h2>
-        <p class="section-sub" data-reveal>Each one starts with who the user is and what confused them.</p>
-      </div>
+      <header class="run" data-run><span>Selected work</span><span>Four products, 2025–2026</span><span>Open a project for the case</span></header>
+      <p class="work-intro" data-reveal>Each one starts with who the user is and what confused them.</p>
 
-      <div class="cases">
-        <article class="case" style="--case:#10b981">
-          <a class="case-stage tilt" href="https://kiranam.space/" target="_blank" rel="noopener" data-cursor="Visit" tabindex="-1" aria-hidden="true" data-reveal>
-            <span class="case-open"><svg class="i"><use href="#i-arrow-ne"/></svg></span>
-            <figure class="case-figure"><img src="assets/projects/ecommerce.svg" alt="Storefront and admin order dashboard screens" width="640" height="440" loading="lazy"></figure>
+      <ol class="projects">
+        <li>
+          <a class="project" href="#case-ecommerce" data-case="ecommerce" aria-haspopup="dialog" data-cursor="Open">
+            <span class="p-no">01</span>
+            <span class="p-main">
+              <span class="p-title"><span class="p-title-in">E-Commerce Platform</span></span>
+              <span class="p-kind">Storefront and admin dashboard</span>
+            </span>
+            <span class="p-result"><i class="p-dot"></i>Live · daily orders</span>
+            <span class="p-year">2025</span>
           </a>
-          <div class="case-body" data-reveal>
-            <span class="case-index" aria-hidden="true">01</span>
-            <p class="case-meta"><span class="tag tag-live"><span class="dot"></span>Live · daily orders</span><span class="case-year">2025</span></p>
-            <h3>E-Commerce Platform</h3>
-            <p class="case-summary">A storefront and admin dashboard designed for a shop owner who had never used one. Every screen answers one question: what's new, and what do I do about it.</p>
-            <dl class="case-grid">
-              <div><dt>User</dt><dd>A local kirana owner managing orders from his phone, and his customers.</dd></div>
-              <div><dt>Design</dt><dd>Two role-based views with one shared component style. Live order status without refresh. Sign-in kept to two options.</dd></div>
-              <div class="is-result"><dt>Result</dt><dd>Handed over without training; in production and receiving customer orders every day.</dd></div>
-            </dl>
-            <ul class="stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Firebase</li></ul>
-            <p class="case-links">
-              <a class="btn btn-solid btn-sm magnetic" href="https://kiranam.space/" target="_blank" rel="noopener">Open the live site <svg class="i i-ne"><use href="#i-arrow-ne"/></svg></a>
-              <a class="btn btn-ghost btn-sm magnetic" href="https://github.com/Vikram5002/Kirana-Retail-Management-Platform" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> GitHub</a>
-            </p>
-          </div>
-        </article>
-
-        <article class="case" style="--case:#a66bff">
-          <a class="case-stage tilt" href="https://github.com/Vikram5002/blueprint-s-_to_vibecoders" target="_blank" rel="noopener" data-cursor="Code" tabindex="-1" aria-hidden="true" data-reveal>
-            <span class="case-open"><svg class="i"><use href="#i-arrow-ne"/></svg></span>
-            <figure class="case-figure"><img src="assets/projects/app-builder.svg" alt="Plan review and page builder screens of the AI app builder" width="640" height="440" loading="lazy"></figure>
-          </a>
-          <div class="case-body" data-reveal>
-            <span class="case-index" aria-hidden="true">02</span>
-            <p class="case-meta"><span class="tag tag-wip"><span class="dot"></span>Capstone · in progress</span><span class="case-year">2026</span></p>
-            <h3>Vibe-Code Blueprint — AI App Builder</h3>
-            <p class="case-summary">An app generator that shows you the plan before it writes code. I design the workspace; I also trained the model that writes the backend.</p>
-            <dl class="case-grid">
-              <div><dt>User</dt><dd>Students and small teams who want a working full-stack app without reading every line.</dd></div>
-              <div><dt>Design</dt><dd>Agent mode with a live build timeline, an editable workflow graph you change in plain words, and a drag-and-drop page builder with 116 elements.</dd></div>
-              <div class="is-result"><dt>Result</dt><dd>Fine-tuned a 7B code model on 403 verified files; first-attempt success on backend components rose from 41% to 87%.</dd></div>
-            </dl>
-            <ul class="stack"><li>TypeScript</li><li>React</li><li>Node.js</li><li>LoRA</li></ul>
-            <p class="case-links">
-              <a class="btn btn-ghost btn-sm magnetic" href="https://github.com/Vikram5002/blueprint-s-_to_vibecoders" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> GitHub</a>
-            </p>
-          </div>
-        </article>
-
-        <article class="case" style="--case:#5b7cff">
-          <a class="case-stage tilt" href="https://github.com/Vikram5002/Non-Academic-Issue-Tracker" target="_blank" rel="noopener" data-cursor="Code" tabindex="-1" aria-hidden="true" data-reveal>
-            <span class="case-open"><svg class="i"><use href="#i-arrow-ne"/></svg></span>
-            <figure class="case-figure"><img src="assets/projects/issue-tracker.svg" alt="Role-specific dashboards of the issue tracker" width="640" height="440" loading="lazy"></figure>
-          </a>
-          <div class="case-body" data-reveal>
-            <span class="case-index" aria-hidden="true">03</span>
-            <p class="case-meta"><span class="tag">University portal</span><span class="case-year">2025–2026</span></p>
-            <h3>Non-Academic Issue Tracker</h3>
-            <p class="case-summary">Eleven kinds of users, one product. The design problem was making each person feel it was built only for them.</p>
-            <dl class="case-grid">
-              <div><dt>User</dt><dd>Students raising complaints; admins, parent staff and sub-staff resolving them.</dd></div>
-              <div><dt>Design</dt><dd>Role-specific dashboards, a consistent theme, auto-highlighted navigation, and a visible status history on every ticket.</dd></div>
-              <div class="is-result"><dt>Result</dt><dd>A hierarchical flow (Admin → Parent Staff → Sub-Staff) replaced email chains; six matching notification templates; deployed on AWS.</dd></div>
-            </dl>
-            <ul class="stack"><li>PHP</li><li>MySQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>AWS</li></ul>
-            <p class="case-links">
-              <a class="btn btn-ghost btn-sm magnetic" href="https://github.com/Vikram5002/Non-Academic-Issue-Tracker" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> GitHub</a>
-            </p>
-          </div>
-        </article>
-
-        <article class="case" style="--case:#f59e0b">
-          <a class="case-stage tilt" href="https://github.com/Vikram5002/event_management_portel" target="_blank" rel="noopener" data-cursor="Code" tabindex="-1" aria-hidden="true" data-reveal>
-            <span class="case-open"><svg class="i"><use href="#i-arrow-ne"/></svg></span>
-            <figure class="case-figure"><img src="assets/projects/events.svg" alt="Approval queue and request status screens of the event management system" width="640" height="440" loading="lazy"></figure>
-          </a>
-          <div class="case-body" data-reveal>
-            <span class="case-index" aria-hidden="true">04</span>
-            <p class="case-meta"><span class="tag">University portal</span><span class="case-year">2025</span></p>
-            <h3>Smart Event Management System</h3>
-            <p class="case-summary">Nine approvers, one request. Queues instead of inboxes, and turnaround went from days to hours.</p>
-            <dl class="case-grid">
-              <div><dt>User</dt><dd>Club heads submitting event proposals; faculty mentors, school heads and the director approving them.</dd></div>
-              <div><dt>Design</dt><dd>Each approver sees only their pending items. Step-level status plus query / reject / resubmit loops so nobody asks "where is it?"</dd></div>
-              <div class="is-result"><dt>Result</dt><dd>Approval turnaround cut from 3–4 days to under 24 hours.</dd></div>
-            </dl>
-            <ul class="stack"><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>Apache</li></ul>
-            <p class="case-links">
-              <a class="btn btn-ghost btn-sm magnetic" href="https://github.com/Vikram5002/event_management_portel" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg> GitHub</a>
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section class="section education" id="education">
-      <div class="section-head">
-        <span class="section-index">04</span>
-        <h2 class="section-title split">Education</h2>
-      </div>
-      <ol class="timeline" data-reveal data-stagger>
-        <li class="tl-item" data-reveal>
-          <span class="tl-node" aria-hidden="true"></span>
-          <time>2023 – 2027</time>
-          <div class="tl-card spot">
-            <span class="fact-icon"><svg class="i"><use href="#i-cap"/></svg></span>
-            <h3>B.Tech, Computer Science &amp; Engineering (Data Science)</h3>
-            <p>STME, SVKM's NMIMS University, Hyderabad</p>
-          </div>
         </li>
-        <li class="tl-item" data-reveal>
-          <span class="tl-node" aria-hidden="true"></span>
-          <time>2021 – 2023</time>
-          <div class="tl-card spot">
-            <span class="fact-icon"><svg class="i"><use href="#i-file"/></svg></span>
-            <h3>Higher Secondary (HSC), 90.3%</h3>
-            <p>Narayana Junior College, Hyderabad</p>
-          </div>
+        <li>
+          <a class="project" href="#case-blueprint" data-case="blueprint" aria-haspopup="dialog" data-cursor="Open">
+            <span class="p-no">02</span>
+            <span class="p-main">
+              <span class="p-title"><span class="p-title-in">Vibe-Code Blueprint</span></span>
+              <span class="p-kind">AI app builder · Capstone, in progress</span>
+            </span>
+            <span class="p-result">41% → 87% first-attempt success</span>
+            <span class="p-year">2026</span>
+          </a>
+        </li>
+        <li>
+          <a class="project" href="#case-tracker" data-case="tracker" aria-haspopup="dialog" data-cursor="Open">
+            <span class="p-no">03</span>
+            <span class="p-main">
+              <span class="p-title"><span class="p-title-in">Non-Academic Issue Tracker</span></span>
+              <span class="p-kind">University portal</span>
+            </span>
+            <span class="p-result">11 user roles, one product</span>
+            <span class="p-year">2025–26</span>
+          </a>
+        </li>
+        <li>
+          <a class="project" href="#case-events" data-case="events" aria-haspopup="dialog" data-cursor="Open">
+            <span class="p-no">04</span>
+            <span class="p-main">
+              <span class="p-title"><span class="p-title-in">Smart Event Management</span></span>
+              <span class="p-kind">University portal</span>
+            </span>
+            <span class="p-result">3–4 days → under 24 hours</span>
+            <span class="p-year">2025</span>
+          </a>
         </li>
       </ol>
+
+      <div class="preview" aria-hidden="true">
+        <img src="assets/projects/ecommerce.svg" alt="" data-case="ecommerce" width="640" height="440">
+        <img src="assets/projects/app-builder.svg" alt="" data-case="blueprint" width="640" height="440">
+        <img src="assets/projects/issue-tracker.svg" alt="" data-case="tracker" width="640" height="440">
+        <img src="assets/projects/events.svg" alt="" data-case="events" width="640" height="440">
+      </div>
     </section>
 
-    <!-- Achievements & leadership -->
-    <section class="section achievements" id="achievements">
-      <div class="section-head">
-        <span class="section-index">05</span>
-        <h2 class="section-title split">Achievements &amp; <em>leadership</em></h2>
+    <!-- Capabilities -->
+    <section class="section skills" id="skills">
+      <header class="run" data-run><span>Capabilities</span><span>Six disciplines</span><span>Design → code</span></header>
+      <p class="statement statement-sm">Design first, then the code to make it real.</p>
+      <div class="caps" data-stagger>
+        <div class="cap cap-lead" data-reveal>
+          <h3>UI/UX <span>09</span></h3>
+          <ul><li>User-centered design</li><li>User flows</li><li>Wireframing</li><li>Prototyping</li><li>Responsive web &amp; mobile</li><li>Visual hierarchy</li><li>Typography &amp; spacing</li><li>Design systems</li><li>Usability review</li></ul>
+        </div>
+        <div class="cap" data-reveal>
+          <h3>Design tools <span>03</span></h3>
+          <ul><li>Figma</li><li>Adobe Photoshop</li><li>Canva</li></ul>
+        </div>
+        <div class="cap" data-reveal>
+          <h3>Front-end <span>07</span></h3>
+          <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li><li>Streamlit</li></ul>
+        </div>
+        <div class="cap" data-reveal>
+          <h3>Backend &amp; data <span>05</span></h3>
+          <ul><li>PHP</li><li>MySQL</li><li>Firebase</li><li>AWS (EC2, RDS)</li><li>Python</li></ul>
+        </div>
+        <div class="cap" data-reveal>
+          <h3>ML &amp; AI <span>06</span></h3>
+          <ul><li>Scikit-learn</li><li>TensorFlow</li><li>Pandas</li><li>NumPy</li><li>LLM fine-tuning (LoRA)</li><li>Power BI</li></ul>
+        </div>
+        <div class="cap" data-reveal>
+          <h3>Collaboration <span>03</span></h3>
+          <ul><li>Requirements gathering</li><li>Developer hand-off</li><li>Git &amp; GitHub</li></ul>
+        </div>
       </div>
-      <ul class="cards" data-stagger>
-        <li class="card spot" data-reveal>
-          <div class="card-top"><span class="fact-icon"><svg class="i"><use href="#i-trophy"/></svg></span><span class="card-num">01</span></div>
-          <h3>Best Backend Award, Hackathon Challenge</h3>
-          <p>Among 15+ teams, delivered a working solution within 12 hours.</p>
-          <time>2025</time>
-        </li>
-        <li class="card spot" data-reveal>
-          <div class="card-top"><span class="fact-icon"><svg class="i"><use href="#i-rocket"/></svg></span><span class="card-num">02</span></div>
-          <h3>Round 3, NMIMS Indore Hackathon</h3>
-          <p>An AI advertising-agency platform that generates posters and ad creatives for any company on request. Designed the brief-to-poster flow and the output review screens.</p>
-          <time>2026</time>
-        </li>
-        <li class="card spot" data-reveal>
-          <div class="card-top"><span class="fact-icon"><svg class="i"><use href="#i-users"/></svg></span><span class="card-num">03</span></div>
-          <h3>Head, SDC — Sankalp Club</h3>
-          <p>Lead campus-wide social events with a 20+ member team; outreach reaching 300+ students. All event posters and communications designed in Canva and Photoshop.</p>
-          <time>2025 – present</time>
-        </li>
-      </ul>
     </section>
 
-    <!-- Certifications -->
-    <section class="section certifications" id="certifications">
-      <div class="section-head">
-        <span class="section-index">06</span>
-        <h2 class="section-title split">Certifications<sup>05</sup></h2>
-        <p class="section-sub" data-reveal>All verifiable on <a href="https://credly.com/users/vikram-gumudavelli" target="_blank" rel="noopener">Credly <svg class="i"><use href="#i-arrow-ne"/></svg></a></p>
+    <!-- Record: education, recognition, certifications -->
+    <section class="section record" id="record">
+      <header class="run" data-run><span>Record</span><span>Education, recognition, certifications</span><span>2021–present</span></header>
+
+      <div class="ledger">
+        <h3 class="ledger-title">Education</h3>
+        <ol class="rows" data-stagger>
+          <li data-reveal><span class="r-when">2023–2027</span><span class="r-what">B.Tech, Computer Science &amp; Engineering (Data Science)</span><span class="r-note">STME, SVKM's NMIMS University, Hyderabad</span></li>
+          <li data-reveal><span class="r-when">2021–2023</span><span class="r-what">Higher Secondary (HSC), 90.3%</span><span class="r-note">Narayana Junior College, Hyderabad</span></li>
+        </ol>
       </div>
-      <ul class="cert-list" data-stagger>
-        <li data-reveal><span class="cert-icon"><svg class="i"><use href="#i-badge"/></svg></span><span class="cert-name">AWS Cloud Foundations</span><span class="cert-org">AWS Academy · 2026</span></li>
-        <li data-reveal><span class="cert-icon"><svg class="i"><use href="#i-badge"/></svg></span><span class="cert-name">AWS Machine Learning Foundations</span><span class="cert-org">AWS Academy · 2025</span></li>
-        <li data-reveal><span class="cert-icon"><svg class="i"><use href="#i-badge"/></svg></span><span class="cert-name">Google Cloud Computing Foundations</span><span class="cert-org">Google Cloud</span></li>
-        <li data-reveal><span class="cert-icon"><svg class="i"><use href="#i-badge"/></svg></span><span class="cert-name">Skill badges: ML APIs, App Dev Environment</span><span class="cert-org">Google Cloud</span></li>
-        <li data-reveal><span class="cert-icon"><svg class="i"><use href="#i-badge"/></svg></span><span class="cert-name">Networking Basics &amp; Operating Systems Basics</span><span class="cert-org">Cisco · 2025</span></li>
-      </ul>
+
+      <div class="ledger">
+        <h3 class="ledger-title">Recognition &amp; leadership</h3>
+        <ol class="rows" data-stagger>
+          <li data-reveal><span class="r-when">2025</span><span class="r-what">Best Backend Award, Hackathon Challenge</span><span class="r-note">Among 15+ teams, delivered a working solution within 12 hours.</span></li>
+          <li data-reveal><span class="r-when">2026</span><span class="r-what">Round 3, NMIMS Indore Hackathon</span><span class="r-note">An AI advertising-agency platform that generates posters and ad creatives for any company on request. Designed the brief-to-poster flow and the output review screens.</span></li>
+          <li data-reveal><span class="r-when">2025–now</span><span class="r-what">Head, SDC — Sankalp Club</span><span class="r-note">Lead campus-wide social events with a 20+ member team; outreach reaching 300+ students. All event posters and communications designed in Canva and Photoshop.</span></li>
+        </ol>
+      </div>
+
+      <div class="ledger">
+        <h3 class="ledger-title">Certifications <a href="https://credly.com/users/vikram-gumudavelli" target="_blank" rel="noopener">Verify on Credly ↗</a></h3>
+        <ol class="rows rows-tight" data-stagger>
+          <li data-reveal><span class="r-when">2026</span><span class="r-what">AWS Cloud Foundations</span><span class="r-note">AWS Academy</span></li>
+          <li data-reveal><span class="r-when">2025</span><span class="r-what">AWS Machine Learning Foundations</span><span class="r-note">AWS Academy</span></li>
+          <li data-reveal><span class="r-when">—</span><span class="r-what">Google Cloud Computing Foundations</span><span class="r-note">Google Cloud</span></li>
+          <li data-reveal><span class="r-when">—</span><span class="r-what">Skill badges: ML APIs, App Dev Environment</span><span class="r-note">Google Cloud</span></li>
+          <li data-reveal><span class="r-when">2025</span><span class="r-what">Networking Basics &amp; Operating Systems Basics</span><span class="r-note">Cisco</span></li>
+        </ol>
+      </div>
     </section>
 
     <!-- Contact -->
-    <section class="section contact" id="contact">
-      <div class="contact-card" data-reveal>
-        <div class="contact-bg" aria-hidden="true"><div class="aurora a1"></div><div class="aurora a2"></div></div>
-        <div class="section-head">
-          <span class="section-index">07</span>
-          <h2 class="section-title split">Let's <em>talk.</em></h2>
-          <p class="section-sub">Open to UI/UX roles in Hyderabad, Bangalore and Mumbai.</p>
-        </div>
-        <div class="contact-body">
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <header class="run" data-run><span>Contact</span><span>Based in Hyderabad, open to Bangalore and Mumbai</span><span>Email · Phone · Form</span></header>
+        <h2 class="talk" aria-label="Let's talk"><span class="talk-line" aria-hidden="true">Let's talk</span></h2>
+
+        <div class="contact-grid">
           <div class="contact-direct">
-            <p class="contact-label">Email</p>
-            <div class="contact-row">
-              <a class="contact-line" href="mailto:bunny.vikram18@gmail.com">bunny.vikram18@gmail.com</a>
-              <button class="copy-btn" type="button" data-copy="bunny.vikram18@gmail.com" aria-label="Copy email address" title="Copy email">
-                <svg class="i i-copy"><use href="#i-copy"/></svg>
-                <svg class="i i-check"><use href="#i-check"/></svg>
-              </button>
+            <p class="contact-note" data-reveal>I'm looking for a UI/UX role where I can own screens end to end, run small usability tests, and help build a design system.</p>
+            <div class="mail-row" data-reveal>
+              <a class="mail" href="mailto:bunny.vikram18@gmail.com" data-cursor="Write">bunny.vikram18@gmail.com</a>
+              <button class="copy" type="button" data-copy="bunny.vikram18@gmail.com">Copy</button>
             </div>
-            <p class="contact-label">Phone</p>
-            <a class="contact-line" href="tel:+917416012268">+91 74160 12268</a>
-            <p class="contact-note">Or send a note here and it lands in my inbox.</p>
-            <ul class="contact-social">
-              <li><a href="https://github.com/Vikram5002" target="_blank" rel="noopener" aria-label="GitHub" class="magnetic"><svg class="i"><use href="#i-github"/></svg></a></li>
-              <li><a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener" aria-label="LinkedIn" class="magnetic"><svg class="i"><use href="#i-linkedin"/></svg></a></li>
-              <li><a href="assets/Vikram_Gumudavelli_CV.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" class="magnetic"><svg class="i"><use href="#i-file"/></svg></a></li>
+            <a class="phone" href="tel:+917416012268" data-reveal>+91 74160 12268</a>
+            <ul class="links" data-reveal>
+              <li><a href="https://github.com/Vikram5002" target="_blank" rel="noopener">GitHub ↗</a></li>
+              <li><a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+              <li><a href="assets/Vikram_Gumudavelli_CV.pdf" target="_blank" rel="noopener">Résumé ↗</a></li>
             </ul>
           </div>
-          <form class="contact-form" action="https://formsubmit.co/bunny.vikram18@gmail.com" method="POST">
+
+          <form class="form" action="https://formsubmit.co/bunny.vikram18@gmail.com" method="POST" data-reveal>
+            <p class="form-title">Or send a note here and it lands in my inbox.</p>
             <input type="hidden" name="_subject" value="Portfolio message">
             <input type="hidden" name="_captcha" value="false">
-            <div class="field"><input id="f-name" type="text" name="name" required autocomplete="name" placeholder=" "><label for="f-name">Your name</label></div>
-            <div class="field"><input id="f-email" type="email" name="email" required autocomplete="email" placeholder=" "><label for="f-email">Your email</label></div>
-            <div class="field"><textarea id="f-msg" name="message" rows="5" required placeholder=" "></textarea><label for="f-msg">Message</label></div>
-            <button class="btn btn-solid btn-lg magnetic" type="submit"><span class="btn-label">Send message</span> <svg class="i"><use href="#i-send"/></svg></button>
-            <p class="form-note" hidden><svg class="i"><use href="#i-check"/></svg> Sent. I'll reply soon.</p>
+            <label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name"></label>
+            <label class="field"><span>Your email</span><input type="email" name="email" required autocomplete="email"></label>
+            <label class="field"><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+            <button class="send" type="submit"><span class="send-label">Send message</span><span aria-hidden="true">→</span></button>
+            <p class="form-note" hidden>Sent. I'll reply soon.</p>
           </form>
         </div>
       </div>
+
+      <footer class="footer">
+        <p>© <span class="year">2026</span> Gumudavelli Vikram</p>
+        <p class="footer-time">Hyderabad <time class="clock-time">--:--</time> IST</p>
+        <p><a href="#top" class="roll"><span data-text="Back to top ↑">Back to top ↑</span></a></p>
+      </footer>
     </section>
   </main>
 
-  <footer class="footer">
-    <a class="footer-mark" href="#home" aria-label="Back to top">
-      <svg viewBox="0 0 1000 118" aria-hidden="true">
-        <defs>
-          <linearGradient id="fgrad" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" style="stop-color:var(--g1)"/>
-            <stop offset=".5" style="stop-color:var(--g2)"/>
-            <stop offset="1" style="stop-color:var(--g3)"/>
-          </linearGradient>
-        </defs>
-        <text x="4" y="96" textLength="992" lengthAdjust="spacing">Gumudavelli Vikram</text>
-      </svg>
-    </a>
-    <div class="footer-bar">
-      <p>© <span id="year"></span> Gumudavelli Vikram</p>
-      <ul>
-        <li><a href="https://github.com/Vikram5002" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/vikram-gumudavelli/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a class="to-top magnetic" href="#home" aria-label="Back to top"><svg class="i"><use href="#i-arrow-up"/></svg></a></li>
-      </ul>
+  <!-- Case studies (open from the work list) -->
+  <dialog class="sheet" id="case-sheet" aria-labelledby="sheet-heading">
+    <div class="sheet-scrim" data-close></div>
+    <div class="sheet-panel" data-lenis-prevent>
+      <div class="sheet-bar">
+        <p id="sheet-heading"><span class="sheet-count">01 / 04</span> Case study</p>
+        <button class="sheet-close" type="button" data-close>Close <span aria-hidden="true">×</span></button>
+      </div>
+
+      <article class="case" id="case-ecommerce" data-case="ecommerce">
+        <p class="case-tag"><i class="p-dot"></i>Live · daily orders</p>
+        <h2 class="case-title">E-Commerce Platform</h2>
+        <p class="case-summary">A storefront and admin dashboard designed for a shop owner who had never used one. Every screen answers one question: what's new, and what do I do about it.</p>
+        <dl class="case-meta">
+          <div><dt>Year</dt><dd>2025</dd></div>
+          <div><dt>Stack</dt><dd>HTML, CSS, JavaScript, Firebase</dd></div>
+          <div><dt>Status</dt><dd>In production</dd></div>
+        </dl>
+        <figure class="case-figure"><img src="assets/projects/ecommerce.svg" alt="Storefront and admin order dashboard screens" width="640" height="440" loading="lazy"></figure>
+        <dl class="case-notes">
+          <div><dt>User</dt><dd>A local kirana owner managing orders from his phone, and his customers.</dd></div>
+          <div><dt>Design</dt><dd>Two role-based views with one shared component style. Live order status without refresh. Sign-in kept to two options.</dd></div>
+          <div><dt>Result</dt><dd>Handed over without training; in production and receiving customer orders every day.</dd></div>
+        </dl>
+        <p class="case-links"><a href="https://kiranam.space/" target="_blank" rel="noopener">Open the live site ↗</a><a href="https://github.com/Vikram5002/Kirana-Retail-Management-Platform" target="_blank" rel="noopener">GitHub ↗</a></p>
+      </article>
+
+      <article class="case" id="case-blueprint" data-case="blueprint" hidden>
+        <p class="case-tag">Capstone · in progress</p>
+        <h2 class="case-title">Vibe-Code Blueprint — AI App Builder</h2>
+        <p class="case-summary">An app generator that shows you the plan before it writes code. I design the workspace; I also trained the model that writes the backend.</p>
+        <dl class="case-meta">
+          <div><dt>Year</dt><dd>2026</dd></div>
+          <div><dt>Stack</dt><dd>TypeScript, React, Node.js, LoRA</dd></div>
+          <div><dt>Status</dt><dd>In progress</dd></div>
+        </dl>
+        <figure class="case-figure"><img src="assets/projects/app-builder.svg" alt="Plan review and page builder screens of the AI app builder" width="640" height="440" loading="lazy"></figure>
+        <dl class="case-notes">
+          <div><dt>User</dt><dd>Students and small teams who want a working full-stack app without reading every line.</dd></div>
+          <div><dt>Design</dt><dd>Agent mode with a live build timeline, an editable workflow graph you change in plain words, and a drag-and-drop page builder with 116 elements.</dd></div>
+          <div><dt>Result</dt><dd>Fine-tuned a 7B code model on 403 verified files; first-attempt success on backend components rose from 41% to 87%.</dd></div>
+        </dl>
+        <p class="case-links"><a href="https://github.com/Vikram5002/blueprint-s-_to_vibecoders" target="_blank" rel="noopener">GitHub ↗</a></p>
+      </article>
+
+      <article class="case" id="case-tracker" data-case="tracker" hidden>
+        <p class="case-tag">University portal</p>
+        <h2 class="case-title">Non-Academic Issue Tracker</h2>
+        <p class="case-summary">Eleven kinds of users, one product. The design problem was making each person feel it was built only for them.</p>
+        <dl class="case-meta">
+          <div><dt>Year</dt><dd>2025–2026</dd></div>
+          <div><dt>Stack</dt><dd>PHP, MySQL, HTML, CSS, JavaScript, AWS</dd></div>
+          <div><dt>Status</dt><dd>Deployed on AWS</dd></div>
+        </dl>
+        <figure class="case-figure"><img src="assets/projects/issue-tracker.svg" alt="Role-specific dashboards of the issue tracker" width="640" height="440" loading="lazy"></figure>
+        <dl class="case-notes">
+          <div><dt>User</dt><dd>Students raising complaints; admins, parent staff and sub-staff resolving them.</dd></div>
+          <div><dt>Design</dt><dd>Role-specific dashboards, a consistent theme, auto-highlighted navigation, and a visible status history on every ticket.</dd></div>
+          <div><dt>Result</dt><dd>A hierarchical flow (Admin → Parent Staff → Sub-Staff) replaced email chains; six matching notification templates; deployed on AWS.</dd></div>
+        </dl>
+        <p class="case-links"><a href="https://github.com/Vikram5002/Non-Academic-Issue-Tracker" target="_blank" rel="noopener">GitHub ↗</a></p>
+      </article>
+
+      <article class="case" id="case-events" data-case="events" hidden>
+        <p class="case-tag">University portal</p>
+        <h2 class="case-title">Smart Event Management System</h2>
+        <p class="case-summary">Nine approvers, one request. Queues instead of inboxes, and turnaround went from days to hours.</p>
+        <dl class="case-meta">
+          <div><dt>Year</dt><dd>2025</dd></div>
+          <div><dt>Stack</dt><dd>PHP, MySQL, JavaScript, Apache</dd></div>
+          <div><dt>Status</dt><dd>University portal</dd></div>
+        </dl>
+        <figure class="case-figure"><img src="assets/projects/events.svg" alt="Approval queue and request status screens of the event management system" width="640" height="440" loading="lazy"></figure>
+        <dl class="case-notes">
+          <div><dt>User</dt><dd>Club heads submitting event proposals; faculty mentors, school heads and the director approving them.</dd></div>
+          <div><dt>Design</dt><dd>Each approver sees only their pending items. Step-level status plus query / reject / resubmit loops so nobody asks "where is it?"</dd></div>
+          <div><dt>Result</dt><dd>Approval turnaround cut from 3–4 days to under 24 hours.</dd></div>
+        </dl>
+        <p class="case-links"><a href="https://github.com/Vikram5002/event_management_portel" target="_blank" rel="noopener">GitHub ↗</a></p>
+      </article>
+
+      <button class="sheet-next" type="button"><span>Next project</span><strong class="sheet-next-title">Vibe-Code Blueprint</strong><span aria-hidden="true">→</span></button>
     </div>
-  </footer>
+  </dialog>
 
   <div class="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
