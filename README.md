@@ -1,20 +1,23 @@
 # Gumudavelli Vikram — Portfolio
 
-Personal portfolio: work, capabilities, record and contact.
+Personal portfolio site: UI/UX work, projects, education and contact.
 
-Static site — plain HTML, CSS and JavaScript, no build step. Motion uses [GSAP](https://gsap.com) + ScrollTrigger and [Lenis](https://lenis.darkroom.engineering) smooth scrolling, loaded from public CDNs. If those fail to load, or the visitor has "reduce motion" turned on, the page shows everything without animation.
+Static site — plain HTML, CSS and JavaScript. No build step, no dependencies.
 
 ## Run locally
 
-Serve the folder (opening `index.html` directly also works):
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
 npx serve .
 ```
 
-## Deploy
+## Deploy on Vercel
 
-The site is deployed on Vercel from this repository. Every push to `main` goes live automatically.
+1. Push this repository to GitHub.
+2. In Vercel, click **Add New → Project**, import the repository.
+3. Framework preset: **Other**. Leave build command and output directory empty.
+4. Deploy.
 
 ## Contact form
 
@@ -25,16 +28,16 @@ After sending, FormSubmit redirects back to the page the form was sent from (`js
 ## Structure
 
 ```
-index.html          page content, including the four case studies (shown in a sheet)
-css/style.css       tokens, type, layout, responsive rules
-js/main.js          intro, smooth scroll, reveals, project preview, case sheet,
-                    cursor, menu, local clock, copy email, form state
-assets/vikram.webp  portrait (background removed)
+index.html          page content
+css/style.css       design tokens, layout, motion, responsive rules
+js/main.js          mobile menu, active nav, scroll reveals, custom cursor,
+                    magnetic buttons, card spotlight, tilt, copy email, form state
+assets/             portrait (vikram.webp), CV, favicon
 assets/projects/    project illustrations
-assets/             CV, favicon
 ```
 
 ## Editing
 
-- Content: edit the sections in `index.html`. Each project has a row in the work list and an `<article class="case">` in the case sheet.
+- Content: edit the sections in `index.html`.
 - Colours, spacing and type: the `:root` block at the top of `css/style.css`.
+- Motion respects the visitor's "reduce motion" setting: animations, the custom cursor and pointer effects turn off and all content shows immediately.
